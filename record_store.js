@@ -25,6 +25,7 @@ RecordStore.prototype.sellRecord = function(recordToSell){
     }
   });
   this.inventory = remainingStock;
+  this.balance += recordToSell.price;
   return recordToSell;
 }
 
