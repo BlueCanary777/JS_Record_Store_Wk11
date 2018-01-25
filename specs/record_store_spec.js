@@ -16,14 +16,20 @@ describe('Record Store', function(){
     record3 = new Record("Pink Floyd", "Dark Side of the Moon", "Rock", 15);
     record4 = new Record("Madonna", "Best Of", "Pop", 9);
     recordStore = new RecordStore("JS Record Store", "Edinburgh", 500);
+    recordStore.addRecord(record1);
+    recordStore.addRecord(record2);
+    recordStore.addRecord(record3);
+    recordStore.addRecord(record4);
   })
 
-  it("should be empty", function(){
+  xit("should be empty", function(){
     assert.strictEqual(recordStore.inventory.length, 0);
   })
 
   it("should contain one record", function(){
     recordStore.addRecord(record1);
-    assert.strictEqual(recordStore.inventory.length, 1);
+    assert.strictEqual(recordStore.inventory.length, 5);
   })
+
+
 })
