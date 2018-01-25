@@ -18,8 +18,8 @@ describe('Record Store', function(){
     recordStore = new RecordStore("JS Record Store", "Edinburgh", 500);
     recordStore.addRecord(record1);
     recordStore.addRecord(record2);
-    recordStore.addRecord(record3);
-    recordStore.addRecord(record4);
+    // recordStore.addRecord(record3);
+    // recordStore.addRecord(record4);
   })
 
   xit("should be empty", function(){
@@ -28,7 +28,11 @@ describe('Record Store', function(){
 
   it("should contain one record", function(){
     recordStore.addRecord(record1);
-    assert.strictEqual(recordStore.inventory.length, 5);
+    assert.strictEqual(recordStore.inventory.length, 3);
+  })
+
+  it("should be able to display inventory", function(){
+    assert.deepEqual(recordStore.displayInventory(), [record1, record2]);
   })
 
 
