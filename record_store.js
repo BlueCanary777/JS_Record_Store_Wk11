@@ -17,5 +17,9 @@ RecordStore.prototype.displayInventory = function(){
   return inventoryDisplay;
 }
 
+// RecordStore.prototype.sellRecord = function(record){
+//   this.inventory.remove(record);
+// }
+
 
 module.exports = RecordStore;
