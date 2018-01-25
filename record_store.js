@@ -17,9 +17,16 @@ RecordStore.prototype.displayInventory = function(){
   return inventoryDisplay;
 }
 
-// RecordStore.prototype.sellRecord = function(record){
-//   this.inventory.remove(record);
-// }
+RecordStore.prototype.sellRecord = function(recordToSell){
+  var remainingStock = [];
+  this.inventory.forEach(function(record){
+    if (recordToSell.title != record.title){
+      remainingStock.push(record);
+    }
+  });
+  this.inventory = remainingStock;
+  return recordToSell;
+}
 
 
 module.exports = RecordStore;
