@@ -29,5 +29,26 @@ RecordStore.prototype.sellRecord = function(recordToSell){
   return recordToSell;
 }
 
+RecordStore.prototype.calcAssets = function(){
+  var inventoryValues = [];
+  this.inventory.forEach(function(record){
+    inventoryValues.push(record.price);
+  })
+  var inventoryTotalValue = inventoryValues.reduce(function(accumulator, currentValue){
+    return accumulator + currentValue;
+  })
+  return inventoryTotalValue += this.balance;
+}
+
+// RecordStore.prototype.displayRecordsOfGenre = function(genre){
+//   var genreInventory = [];
+//   var found = this.inventory.find(function(record) {
+//   return record.title === "Pop";
+//   genreInventory.push(record);
+// });
+// console.log(genreInventory);
+// return genreInventory;
+// }
+
 
 module.exports = RecordStore;
