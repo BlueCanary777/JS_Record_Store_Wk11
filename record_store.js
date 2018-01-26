@@ -17,16 +17,16 @@ RecordStore.prototype.displayInventory = function(){
   return inventoryDisplay;
 }
 
-RecordStore.prototype.sellRecord = function(recordToSell){
+RecordStore.prototype.sellRecord = function(recordSelling){
   var remainingStock = [];
   this.inventory.forEach(function(record){
-    if (recordToSell.title != record.title){
+    if (recordSelling.title != record.title){
       remainingStock.push(record);
     }
   });
   this.inventory = remainingStock;
-  this.balance += recordToSell.price;
-  return recordToSell;
+  this.balance += recordSelling.price;
+  return recordSelling;
 }
 
 RecordStore.prototype.calcAssets = function(){
@@ -40,6 +40,15 @@ RecordStore.prototype.calcAssets = function(){
   return inventoryTotalValue += this.balance;
 }
 
+RecordStore.prototype.findGenreStock = function(genreSelection){
+var genreStock = [];
+this.inventory.forEach(function(record){
+  if (record.genre === genreSelection.genre){
+    genreStock.push(record);
+  }
+});
+  return genreStock;
+}
 // RecordStore.prototype.displayRecordsOfGenre = function(genre){
 //   var genreInventory = [];
 //   var found = this.inventory.find(function(record) {

@@ -45,9 +45,9 @@ describe('Record Store', function(){
     assert.strictEqual(recordStore.calcAssets(), 546);
   })
 
-  // it("should allow the store to view all Records of a given Genre", function(){
-  //   assert.deepEqual(recordStore.displayRecordsOfGenre("Pop"), [record1, record4]);
-  // })
+  it("should allow the store to view all Records of a given Genre", function(){
+    assert.deepEqual(recordStore.findGenreStock(record1), [record1, record4]);
+  })
 
 
 })
